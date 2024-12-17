@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Domain.Models", "Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Infrastructure.Database.Ef", "Lottery.Infrastructure.Database.Ef\Lottery.Infrastructure.Database.Ef.csproj", "{B8545F13-D34A-4A5B-A381-554C2C8194B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Infrastructure.Database.Injection", "Lottery.Infrastructure.Database.Injection\Lottery.Infrastructure.Database.Injection.csproj", "{B72C2B46-6E79-4998-B681-EB15C228505A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Domain.Configuration", "Lottery.Domain.Configuration\Lottery.Domain.Configuration.csproj", "{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,14 @@ Global
 		{B8545F13-D34A-4A5B-A381-554C2C8194B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8545F13-D34A-4A5B-A381-554C2C8194B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8545F13-D34A-4A5B-A381-554C2C8194B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72C2B46-6E79-4998-B681-EB15C228505A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72C2B46-6E79-4998-B681-EB15C228505A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72C2B46-6E79-4998-B681-EB15C228505A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72C2B46-6E79-4998-B681-EB15C228505A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +85,7 @@ Global
 		{384B6355-75B1-4A21-8647-809EBC1E523D} = {3CBE75AD-5B5D-4C66-9BBB-115CF1F77BDF}
 		{E2355C4A-D0B5-4E3D-82FE-0954535AAB00} = {F9FC6554-655A-49BD-8E6C-C456771F2350}
 		{B8545F13-D34A-4A5B-A381-554C2C8194B0} = {3CBE75AD-5B5D-4C66-9BBB-115CF1F77BDF}
+		{B72C2B46-6E79-4998-B681-EB15C228505A} = {3CBE75AD-5B5D-4C66-9BBB-115CF1F77BDF}
+		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11} = {F9FC6554-655A-49BD-8E6C-C456771F2350}
 	EndGlobalSection
 EndGlobal
