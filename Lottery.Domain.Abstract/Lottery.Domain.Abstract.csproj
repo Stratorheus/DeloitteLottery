@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lottery.Domain.Models\Lottery.Domain.Models.csproj" />
+    <ProjectReference Include="..\Lottery.Domain.Specifications\Lottery.Domain.Specifications.csproj" />
+  </ItemGroup>
+
 </Project>

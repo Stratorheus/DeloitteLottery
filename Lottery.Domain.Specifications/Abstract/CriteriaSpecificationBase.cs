@@ -4,12 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-
-using Lottery.Domain.Entities.Base;
+using Lottery.Domain.Models.Database.Entities;
 
 namespace Lottery.Domain.Specifications.Abstract
 {
-    public abstract class CriteriaSpecificationBase<T> : SpecificationBase<T> where T : DbEntityBase
+    internal abstract class CriteriaSpecificationBase<T> : SpecificationBase<T> where T : DbEntityBase
     {
         protected CriteriaSpecificationBase(Expression<Func<T, bool>> criteria)
         {
