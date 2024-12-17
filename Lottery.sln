@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{32846CE0-E0F2-4744-AE85-8EC80F56A71F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{EBF293B6-782A-419B-97F1-224933115BB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{962FD2CF-8E04-4FBD-B9FB-E492C776BAB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F9FC6554-655A-49BD-8E6C-C456771F2350}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{BD745107-AA1D-4DCC-BEEA-7B41ED8994E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{BC9569FD-AF11-4E2E-AA5E-54EFDB569EB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Presentation.Server.Api", "Lottery.Presentation.Server.Api\Lottery.Presentation.Server.Api.csproj", "{F3066B04-5A17-401D-A4B8-78AD32CB4358}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Domain.Entities", "Lottery.Domain.Entities\Lottery.Domain.Entities.csproj", "{A50E5F33-2B6A-4255-81C5-EF22EAC03173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Domain.Abstract", "Lottery.Domain.Abstract\Lottery.Domain.Abstract.csproj", "{10F9E6E3-8CFA-4048-ADD8-2907C29A9409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Domain.Specifications", "Lottery.Domain.Specifications\Lottery.Domain.Specifications.csproj", "{3BB8D63B-ACC8-46E9-8395-F50794463770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3066B04-5A17-401D-A4B8-78AD32CB4358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3066B04-5A17-401D-A4B8-78AD32CB4358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3066B04-5A17-401D-A4B8-78AD32CB4358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3066B04-5A17-401D-A4B8-78AD32CB4358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A50E5F33-2B6A-4255-81C5-EF22EAC03173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A50E5F33-2B6A-4255-81C5-EF22EAC03173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A50E5F33-2B6A-4255-81C5-EF22EAC03173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A50E5F33-2B6A-4255-81C5-EF22EAC03173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F9E6E3-8CFA-4048-ADD8-2907C29A9409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F9E6E3-8CFA-4048-ADD8-2907C29A9409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F9E6E3-8CFA-4048-ADD8-2907C29A9409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F9E6E3-8CFA-4048-ADD8-2907C29A9409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB8D63B-ACC8-46E9-8395-F50794463770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB8D63B-ACC8-46E9-8395-F50794463770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB8D63B-ACC8-46E9-8395-F50794463770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB8D63B-ACC8-46E9-8395-F50794463770}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD745107-AA1D-4DCC-BEEA-7B41ED8994E8} = {32846CE0-E0F2-4744-AE85-8EC80F56A71F}
+		{BC9569FD-AF11-4E2E-AA5E-54EFDB569EB9} = {32846CE0-E0F2-4744-AE85-8EC80F56A71F}
+		{F3066B04-5A17-401D-A4B8-78AD32CB4358} = {BD745107-AA1D-4DCC-BEEA-7B41ED8994E8}
+		{A50E5F33-2B6A-4255-81C5-EF22EAC03173} = {F9FC6554-655A-49BD-8E6C-C456771F2350}
+		{10F9E6E3-8CFA-4048-ADD8-2907C29A9409} = {F9FC6554-655A-49BD-8E6C-C456771F2350}
+		{3BB8D63B-ACC8-46E9-8395-F50794463770} = {F9FC6554-655A-49BD-8E6C-C456771F2350}
+	EndGlobalSection
+EndGlobal
