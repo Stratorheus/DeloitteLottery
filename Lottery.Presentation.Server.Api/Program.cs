@@ -25,7 +25,6 @@ namespace Lottery.Presentation.Server.Api
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();

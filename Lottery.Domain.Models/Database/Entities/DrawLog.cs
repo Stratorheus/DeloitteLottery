@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Lottery.Domain.Entities.Base;
-
 namespace Lottery.Domain.Models.Database.Entities
 {
     public sealed class DrawLog : DbEntityBase
