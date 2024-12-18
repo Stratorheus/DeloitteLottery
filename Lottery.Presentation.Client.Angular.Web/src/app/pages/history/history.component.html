@@ -1,0 +1,30 @@
+<div>
+  @if (loading) {
+    <div>Loading...</div>
+  } @else {
+    @if (history.length > 0) {
+      <table class="table-auto border-collapse border border-gray-500 w-full">
+        <thead>
+        <tr>
+          <th class="border border-gray-500 px-4 py-2">Created</th>
+          <th class="border border-gray-500 px-4 py-2">Numbers</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (log of history; track log.Id) {
+            <tr>
+              <td class="border border-gray-500 px-4 py-2">{{ log.created }}</td>
+              @for (number of log.numbers; track number){
+                <td class="border border-gray-500 px-4 py-2">
+                  {{ number.number }}
+                </td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <div>No data found.</div>
+    }
+  }
+</div>

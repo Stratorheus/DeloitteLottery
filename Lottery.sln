@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{32846CE0-E0F2-4744-AE85-8EC80F56A71F}"
 EndProject
@@ -38,6 +38,29 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Application.Injection", "Lottery.Application.Injection\Lottery.Application.Injection.csproj", "{0EDAB698-E0D6-48C8-97ED-9774D72D7998}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Application.Configuration", "Lottery.Application.Configuration\Lottery.Application.Configuration.csproj", "{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular", "Angular", "{BB269405-E15B-4382-BEEA-EF4752622B16}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Lottery.Presentation.Client.Angular.Web", "Lottery.Presentation.Client.Angular.Web\", "{9358FB5E-AF81-4396-8CCB-0584A6BECD82}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64343"
+		Debug.AspNetCompiler.PhysicalPath = "Lottery.Presentation.Client.Angular.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64343\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64343"
+		Release.AspNetCompiler.PhysicalPath = "Lottery.Presentation.Client.Angular.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64343\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "64343"
+		SlnRelativePath = "Lottery.Presentation.Client.Angular.Web\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +112,10 @@ Global
 		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9358FB5E-AF81-4396-8CCB-0584A6BECD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9358FB5E-AF81-4396-8CCB-0584A6BECD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9358FB5E-AF81-4396-8CCB-0584A6BECD82}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9358FB5E-AF81-4396-8CCB-0584A6BECD82}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,5 +135,7 @@ Global
 		{DCBFAB31-1C2D-4711-A96C-BD458AAF918A} = {962FD2CF-8E04-4FBD-B9FB-E492C776BAB3}
 		{0EDAB698-E0D6-48C8-97ED-9774D72D7998} = {962FD2CF-8E04-4FBD-B9FB-E492C776BAB3}
 		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0} = {962FD2CF-8E04-4FBD-B9FB-E492C776BAB3}
+		{BB269405-E15B-4382-BEEA-EF4752622B16} = {BC9569FD-AF11-4E2E-AA5E-54EFDB569EB9}
+		{9358FB5E-AF81-4396-8CCB-0584A6BECD82} = {BB269405-E15B-4382-BEEA-EF4752622B16}
 	EndGlobalSection
 EndGlobal

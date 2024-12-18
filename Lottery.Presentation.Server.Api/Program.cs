@@ -22,6 +22,16 @@ namespace Lottery.Presentation.Server.Api
             builder.Services.AddControllers();
             builder.Services.AddOpenApi();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigins", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader( )
+                          .AllowAnyMethod( );
+                });
+            });
+
             var app = builder.Build();
 
             app.UseSerilogRequestLogging( );
@@ -36,6 +46,8 @@ namespace Lottery.Presentation.Server.Api
                         .WithDefaultHttpClient(ScalarTarget.Node, ScalarClient.Axios);
                 });
             }
+
+            app.UseCors("AllowSpecificOrigins");
 
             app.UseHttpsRedirection();
 

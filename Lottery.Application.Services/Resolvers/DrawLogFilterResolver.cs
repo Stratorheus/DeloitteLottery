@@ -12,6 +12,9 @@ using Lottery.Domain.Models.Request;
 
 namespace Lottery.Application.Services.Resolvers
 {
+    //Probably should rather be in Domain and used in specification the same way order resolving is used
+    //Hovewer that would add unnecessary logics and dependency to domain model, which should remain independent
+    //Not sure here
     public static class DrawLogFilterResolver
     {
         public static Expression<Func<DrawLog, bool>> CreateCriteria(DrawHistoryRequest filter)
