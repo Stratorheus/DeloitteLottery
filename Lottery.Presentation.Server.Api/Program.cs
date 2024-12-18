@@ -1,3 +1,7 @@
+using Lottery.Infrastructure.Injection;
+using Lottery.Application.Injection;
+using Scalar.AspNetCore;
+using Serilog;
 
 namespace Lottery.Presentation.Server.Api
 {
@@ -7,18 +11,30 @@ namespace Lottery.Presentation.Server.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Host.UseSerilog((context, configuration) =>
+            {
+                configuration.ReadFrom.Configuration(context.Configuration);
+            });
+
+            builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddApplication(builder.Configuration);
 
             builder.Services.AddControllers();
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            app.UseSerilogRequestLogging( );
+
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+                app.MapScalarApiReference(opt =>
+                {
+                    opt.WithTitle("Lottery API")
+                        .WithTheme(ScalarTheme.DeepSpace)
+                        .WithDefaultHttpClient(ScalarTarget.Node, ScalarClient.Axios);
+                });
             }
 
             app.UseHttpsRedirection();
@@ -27,7 +43,19 @@ namespace Lottery.Presentation.Server.Api
 
             app.MapControllers();
 
-            app.Run();
+            try
+            {
+                Log.Information("Application is starting...");
+                app.Run( );
+            }
+            catch ( Exception ex )
+            {
+                Log.Fatal(ex, "Application failed to start.");
+            }
+            finally
+            {
+                Log.CloseAndFlush( );
+            }
         }
     }
 }

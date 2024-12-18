@@ -7,14 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Lottery.Infrastructure.Database.Ef\Lottery.Infrastructure.Database.Ef.csproj" />
-    <ProjectReference Include="..\Lottery.Infrastructure.Database.Repositories\Lottery.Infrastructure.Database.Repositories.csproj" />
+    <ProjectReference Include="..\Lottery.Infrastructure.Database.Injection\Lottery.Infrastructure.Database.Injection.csproj" />
   </ItemGroup>
 
 </Project>

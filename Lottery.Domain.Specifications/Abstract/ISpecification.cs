@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using Lottery.Domain.Models.Database.Entities;
 
 namespace Lottery.Domain.Specifications.Abstract

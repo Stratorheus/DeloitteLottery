@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Lottery.Domain.Abstract.Infrastructure.Database;
-using Lottery.Domain.Configuration;
+﻿using Lottery.Domain.Abstract.Infrastructure.Database;
 using Lottery.Infrastructure.Database.Ef.Context;
 using Lottery.Infrastructure.Database.Repositories;
 

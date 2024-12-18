@@ -31,7 +31,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Infrastructure.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Infrastructure.Database.Injection", "Lottery.Infrastructure.Database.Injection\Lottery.Infrastructure.Database.Injection.csproj", "{B72C2B46-6E79-4998-B681-EB15C228505A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Domain.Configuration", "Lottery.Domain.Configuration\Lottery.Domain.Configuration.csproj", "{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Infrastructure.Injection", "Lottery.Infrastructure.Injection\Lottery.Infrastructure.Injection.csproj", "{A992AD1D-C677-4905-BCD6-26032ECE172F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Application.Services", "Lottery.Application.Services\Lottery.Application.Services.csproj", "{DCBFAB31-1C2D-4711-A96C-BD458AAF918A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Application.Injection", "Lottery.Application.Injection\Lottery.Application.Injection.csproj", "{0EDAB698-E0D6-48C8-97ED-9774D72D7998}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Application.Configuration", "Lottery.Application.Configuration\Lottery.Application.Configuration.csproj", "{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,10 +73,22 @@ Global
 		{B72C2B46-6E79-4998-B681-EB15C228505A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B72C2B46-6E79-4998-B681-EB15C228505A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B72C2B46-6E79-4998-B681-EB15C228505A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A992AD1D-C677-4905-BCD6-26032ECE172F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A992AD1D-C677-4905-BCD6-26032ECE172F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A992AD1D-C677-4905-BCD6-26032ECE172F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A992AD1D-C677-4905-BCD6-26032ECE172F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCBFAB31-1C2D-4711-A96C-BD458AAF918A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCBFAB31-1C2D-4711-A96C-BD458AAF918A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCBFAB31-1C2D-4711-A96C-BD458AAF918A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCBFAB31-1C2D-4711-A96C-BD458AAF918A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDAB698-E0D6-48C8-97ED-9774D72D7998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDAB698-E0D6-48C8-97ED-9774D72D7998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDAB698-E0D6-48C8-97ED-9774D72D7998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDAB698-E0D6-48C8-97ED-9774D72D7998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +104,9 @@ Global
 		{E2355C4A-D0B5-4E3D-82FE-0954535AAB00} = {F9FC6554-655A-49BD-8E6C-C456771F2350}
 		{B8545F13-D34A-4A5B-A381-554C2C8194B0} = {3CBE75AD-5B5D-4C66-9BBB-115CF1F77BDF}
 		{B72C2B46-6E79-4998-B681-EB15C228505A} = {3CBE75AD-5B5D-4C66-9BBB-115CF1F77BDF}
-		{B89398D9-741D-40CE-AB8E-5FB2A3D85D11} = {F9FC6554-655A-49BD-8E6C-C456771F2350}
+		{A992AD1D-C677-4905-BCD6-26032ECE172F} = {EBF293B6-782A-419B-97F1-224933115BB8}
+		{DCBFAB31-1C2D-4711-A96C-BD458AAF918A} = {962FD2CF-8E04-4FBD-B9FB-E492C776BAB3}
+		{0EDAB698-E0D6-48C8-97ED-9774D72D7998} = {962FD2CF-8E04-4FBD-B9FB-E492C776BAB3}
+		{4390E97A-3D4B-4EB2-9126-41B4C70BD3D0} = {962FD2CF-8E04-4FBD-B9FB-E492C776BAB3}
 	EndGlobalSection
 EndGlobal
