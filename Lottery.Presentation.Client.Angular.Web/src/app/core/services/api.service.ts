@@ -10,7 +10,7 @@ import {
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl: string = 'https://localhost:7220/api/draw';
+  private baseUrl: string = 'http://localhost:5249/api/draw';
 
   constructor(private http: HttpClient) {}
 
