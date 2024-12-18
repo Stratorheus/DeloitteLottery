@@ -1,0 +1,58 @@
+<div>
+  <form [formGroup]="filterForm"  class="flex flex-col items-end justify-center">
+    <div class="flex md:flex-row flex-col gap-2">
+      <!-- From Date -->
+      <div>
+        <label for="fromDate" class="block text-sm font-medium">From Date</label>
+        <input
+          type="date"
+          id="fromDate"
+          formControlName="fromDate"
+          class="mt-1 block w-full bg-white/20 rounded px-2"
+        />
+      </div>
+
+      <!-- To Date -->
+      <div>
+        <label for="toDate" class="block text-sm font-medium">To Date</label>
+        <input
+          type="date"
+          id="toDate"
+          formControlName="toDate"
+          class="mt-1 block w-full bg-white/20 rounded px-2"
+        />
+      </div>
+
+      <!-- Min Number -->
+      <div>
+        <label for="minNumber" class="block text-sm font-medium">Min Number (all occurrences)</label>
+        <input
+          type="number"
+          id="minNumber"
+          formControlName="minNumber"
+          class="mt-1 block w-full bg-white/20 rounded px-2"
+        />
+      </div>
+
+      <!-- Max Number -->
+      <div>
+        <label for="maxNumber" class="block text-sm font-medium">Max Number (all occurrences)</label>
+        <input
+          type="number"
+          id="maxNumber"
+          formControlName="maxNumber"
+          class="mt-1 block w-full bg-white/20 rounded px-2"
+        />
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="button"
+      (click)="submitFilter()"
+      class="mt-4 bg-teal-500 hover:bg-teal-600 px-2 py-1 rounded-full text-sm"
+    >
+      Search
+    </button>
+  </form>
+</div>

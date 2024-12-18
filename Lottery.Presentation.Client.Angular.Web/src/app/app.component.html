@@ -1,5 +1,22 @@
-<main class="bg-slate-300">
-  <h1 class="text-3xl font-bold underline">Sranda</h1>
-  <app-generation-toggle/>
-</main>
-<router-outlet />
+<div class="min-h-screen flex items-stretch flex-col bg-gradient-to-br">
+  <header class="w-full items-center justify-center bg-white/5 flex flex-row px-2 py-4">
+    <div class="flex flex-row gap-4">
+      <a [routerLink]="isApiAvailable ? '/' : null"
+         [class.opacity-50]="!isApiAvailable"
+         [routerLinkActiveOptions]="{exact: true}"
+         routerLinkActive="bg-white/80 text-black"
+         class="py-1 uppercase px-2 transition-colors duration-150 bg-white/10 rounded-lg">Let's play</a>
+      <a [routerLink]="isApiAvailable ? '/history' : null"
+         [class.opacity-50]="!isApiAvailable"
+         routerLinkActive="bg-white/80 text-black"
+         class="py-1 uppercase px-2 transition-colors duration-150 bg-white/10 rounded-lg">Draw history</a>
+    </div>
+  </header>
+  <main class="flex-1 flex min-w-full justify-center pt-4">
+    <router-outlet />
+  </main>
+  <footer class="w-full items-center justify-center bg-white/5 flex sm:flex-row flex-col sm:gap-6 gap-1 py-1">
+    <span class="text-sm">Lottery - Deloitte case study</span>
+    <span class="text-sm">Created by <a href="https://www.skorupa.dev/" target="_blank" class="underline font-medium text-white">Martin Skořupa</a></span>
+  </footer>
+</div>

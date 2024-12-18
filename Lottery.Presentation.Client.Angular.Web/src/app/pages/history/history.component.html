@@ -1,21 +1,68 @@
-<div>
+<div class="flex-1 flex flex-col items-center h-full gap-4 justify-start mb-12">
+  <app-history-filter (filterSubmitted)="onFilterSubmit($event)"/>
   @if (loading) {
     <div>Loading...</div>
   } @else {
-    @if (history.length > 0) {
-      <table class="table-auto border-collapse border border-gray-500 w-full">
+    @if (history.items && history.items.length > 0) {
+      <div class="max-w-[95vw] w-full p-4 overflow-x-auto">
+      <table class="table-auto min-w-fit mx-4">
         <thead>
         <tr>
-          <th class="border border-gray-500 px-4 py-2">Created</th>
-          <th class="border border-gray-500 px-4 py-2">Numbers</th>
+          <th (click)="setOrder('Id')">
+            <span class="pr-6">Id</span>
+            @if (filterRequest.orderBy === 'Id') {
+              <span class="-ml-4">{{ filterRequest.descending ? '▼' : '▲' }}</span>
+            }
+          </th>
+          <th (click)="setOrder('Created')">
+            <span class="pr-6">Created</span>
+            @if (filterRequest.orderBy === 'Created') {
+              <span class="-ml-4">{{ filterRequest.descending ? '▼' : '▲' }}</span>
+            }
+          </th>
+          <!--This could be also generated dynamically, backend is fully prepared for it.
+          For simplicity, I'll just use five columns
+          Extensions idea: add endpoint to BE API to get largest possible index of number in DB,
+          generate columns based on this index. Ordering functionality is already present on the BE-->
+          <th class="text-nowrap" (click)="setOrder('NumberIndex', 0)">
+            <span class="pr-6">Number 1</span>
+            @if (filterRequest.orderBy === 'NumberIndex' && filterRequest.orderByNumberIndex === 0) {
+              <span class="-ml-4">{{ filterRequest.descending ? '▼' : '▲' }}</span>
+            }
+          </th>
+          <th class="text-nowrap" (click)="setOrder('NumberIndex', 1)">
+            <span class="pr-6">Number 2</span>
+            @if (filterRequest.orderBy === 'NumberIndex' && filterRequest.orderByNumberIndex === 1) {
+              <span class="-ml-4">{{ filterRequest.descending ? '▼' : '▲' }}</span>
+            }
+          </th>
+          <th class="text-nowrap" (click)="setOrder('NumberIndex', 2)">
+            <span class="pr-6">Number 3</span>
+            @if (filterRequest.orderBy === 'NumberIndex' && filterRequest.orderByNumberIndex === 2) {
+              <span class="-ml-4">{{ filterRequest.descending ? '▼' : '▲' }}</span>
+            }
+          </th>
+          <th class="text-nowrap" (click)="setOrder('NumberIndex', 3)">
+            <span class="pr-6">Number 4</span>
+            @if (filterRequest.orderBy === 'NumberIndex' && filterRequest.orderByNumberIndex === 3) {
+              <span class="-ml-4">{{ filterRequest.descending ? '▼' : '▲' }}</span>
+            }
+          </th>
+          <th class="text-nowrap" (click)="setOrder('NumberIndex', 4)">
+            <span class="pr-6">Number 5</span>
+            @if (filterRequest.orderBy === 'NumberIndex' && filterRequest.orderByNumberIndex === 4) {
+              <span class="-ml-4">{{ filterRequest.descending ? '▼' : '▲' }}</span>
+            }
+          </th>
         </tr>
         </thead>
         <tbody>
-          @for (log of history; track log.Id) {
+          @for (log of history.items; track log.id) {
             <tr>
-              <td class="border border-gray-500 px-4 py-2">{{ log.created }}</td>
+              <td>{{log.id}}</td>
+              <td><span class="text-nowrap">{{ log.created | date:'dd.MM.yyyy HH:mm:ss' }}</span></td>
               @for (number of log.numbers; track number){
-                <td class="border border-gray-500 px-4 py-2">
+                <td>
                   {{ number.number }}
                 </td>
               }
@@ -23,6 +70,43 @@
           }
         </tbody>
       </table>
+      </div>
+      <div class="w-full flex items-center justify-between mt-4">
+        <div class="text-sm font-semibold">
+          @if (history.totalCount > 0) {
+            Showing {{ filterRequest.pageIndex * filterRequest.pageSize + 1 }} -
+            {{ Math.min((filterRequest.pageIndex + 1) * filterRequest.pageSize, history.totalCount) }}
+            of {{ history.totalCount }}
+          } @else {
+            No results found
+          }
+        </div>
+        <div class="flex items-center gap-2">
+          <select
+            class="border-b border-teal-500 bg-transparent"
+            [(ngModel)]="filterRequest.pageSize"
+            (ngModelChange)="onPageSizeChange($event)"
+          >
+            @for(size of pageSizeOptions; track size){
+              <option [value]="size">{{ size }}</option>
+            }
+          </select>
+          <button
+            class="border-teal-500 border px-2 py-1 rounded-full"
+            [disabled]="filterRequest.pageIndex === 0"
+            (click)="goToPreviousPage()"
+          >
+            Previous
+          </button>
+          <button
+            class="border-teal-500 border px-2 py-1 rounded-full"
+            [disabled]="(filterRequest.pageIndex + 1) * filterRequest.pageSize >= history.totalCount"
+            (click)="goToNextPage()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     } @else {
       <div>No data found.</div>
     }
