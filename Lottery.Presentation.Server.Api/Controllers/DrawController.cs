@@ -1,5 +1,9 @@
 ﻿using Lottery.Domain.Abstract.Application;
+using Lottery.Domain.Models.Common;
+using Lottery.Domain.Models.Constants.OrderableProperties;
 using Lottery.Domain.Models.Database.Entities;
+using Lottery.Domain.Models.Dto;
+using Lottery.Domain.Models.Request;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,12 +11,12 @@ namespace Lottery.Presentation.Server.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LotteryController : ControllerBase
+    public class DrawController : ControllerBase
     {
         private readonly ILotteryService _lotteryService;
-        private readonly ILogger<LotteryController> _logger;
+        private readonly ILogger<DrawController> _logger;
 
-        public LotteryController(ILotteryService lotteryService, ILogger<LotteryController> logger)
+        public DrawController(ILotteryService lotteryService, ILogger<DrawController> logger)
         {
             _lotteryService = lotteryService;
             _logger = logger;
@@ -20,7 +24,7 @@ namespace Lottery.Presentation.Server.Api.Controllers
 
         [HttpGet("generate")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int[]))]
-        public IActionResult GenerateDraw( )
+        public IActionResult Generate( )
         {
             var numbers = _lotteryService.GenerateDraw();
             return Ok(numbers);
@@ -38,7 +42,7 @@ namespace Lottery.Presentation.Server.Api.Controllers
         [HttpPost("save")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> SaveDraw([FromBody] int[] numbers)
+        public async Task<IActionResult> Save([FromBody] int[] numbers)
         {
             try
             {
@@ -58,12 +62,20 @@ namespace Lottery.Presentation.Server.Api.Controllers
             }
         }
 
-        [HttpGet("history")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<DrawLog>))]
-        public async Task<IActionResult> GetDrawHistory( )
+        [HttpPost("history")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PagedResult<DrawLogDto>))]
+        public async Task<IActionResult> GetHistory([FromBody] DrawHistoryRequest request)
         {
-            var history = await _lotteryService.GetDrawHistoryAsync();
+            var history = await _lotteryService.GetDrawHistoryAsync(request);
             return Ok(history);
+        }
+
+        [HttpGet("orderable-fields")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<string>))]
+        public IActionResult GetOrderableField( )
+        {
+            var fields = DrawLogOrderableProperties.GetAll();
+            return Ok(fields);
         }
     }
 }

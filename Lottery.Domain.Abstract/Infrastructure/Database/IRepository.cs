@@ -7,11 +7,11 @@ namespace Lottery.Domain.Abstract.Infrastructure.Database
     public interface IRepository<T> where T : DbEntityBase
     {
         /// <summary>
-        /// Get entity by its primary key (Guid).
+        /// Get entity by its primary key.
         /// </summary>
         /// <param name="id">Unique identifier of the entity.</param>
         /// <returns>Entity or null if not found.</returns>
-        Task<T?> GetAsync(Guid id);
+        Task<T?> GetAsync(int id);
 
         /// <summary>
         /// Get single entity by specification. Expects 0 or 1 result.

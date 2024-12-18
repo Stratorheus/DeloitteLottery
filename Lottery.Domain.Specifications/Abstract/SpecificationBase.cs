@@ -3,7 +3,7 @@ using Lottery.Domain.Models.Database.Entities;
 
 namespace Lottery.Domain.Specifications.Abstract
 {
-    internal abstract class SpecificationBase<T> : ISpecification<T> where T:DbEntityBase
+    public abstract class SpecificationBase<T> : ISpecification<T> where T:DbEntityBase
     {
         public Expression<Func<T, bool>>? Criteria { get; protected set; }
         public List<Expression<Func<T, object>>> Includes { get; } = new List<Expression<Func<T, object>>>( );

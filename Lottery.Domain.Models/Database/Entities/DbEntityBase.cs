@@ -5,6 +5,9 @@
         /// <summary>
         /// Unique identifier
         /// </summary>
-        public Guid Id { get; set; }
+        /// <remarks>
+        /// In case of auditing data collected by many users (only one in this case), I'd rather choose GUID for this entity
+        /// </remarks>
+        public int Id { get; set; }
     }
 }

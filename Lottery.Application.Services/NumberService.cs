@@ -60,7 +60,7 @@ namespace Lottery.Application.Services
             /* 
              * Possible improvement: Multithreading
              * 
-             * If we could expect the count to exceed very high values (e.g. over 100,000), it would also make sense to use multi-threading.
+             * If we could expect the Count to exceed very high values (e.g. over 100,000), it would also make sense to use multi-threading.
              * Random.Next is very fast CPU-bound operation. If we wanted to implement multi-threading, we could use the Random.Shared,
              * which is thread-safe form of Random.
              * For given specifications of this project, multithreading wouldn't make sence, thus not implemented.

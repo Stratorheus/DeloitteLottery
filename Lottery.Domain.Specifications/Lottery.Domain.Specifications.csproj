@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Draw\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Lottery.Domain.Models\Lottery.Domain.Models.csproj" />
   </ItemGroup>
 

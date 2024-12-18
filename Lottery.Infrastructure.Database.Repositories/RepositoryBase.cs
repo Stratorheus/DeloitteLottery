@@ -21,7 +21,7 @@ namespace Lottery.Infrastructure.Database.Repositories
             _dbSet = _context.Set<T>( );
         }
 
-        public virtual async Task<T?> GetAsync(Guid id)
+        public virtual async Task<T?> GetAsync(int id)
         {
             //Another option would be _dbSet.FindAsync(id)
             //FindAsync goes directly through the primary key, but returns tracked entity
