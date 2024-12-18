@@ -34,8 +34,8 @@ namespace Lottery.Domain.Specifications.Draw
                 DrawLogOrderableProperties.NumberIndex when request.OrderByNumberIndex.HasValue =>
                     log => log.DrawNumbers
                         .Where(n => n.Index == request.OrderByNumberIndex.Value)
-                        .Select(n => (object)n.Number)
-                        .FirstOrDefault( ) ?? log.Created,
+                        .Select(n => (int?)n.Number)
+                        .FirstOrDefault( ) ?? (request.Descending ? int.MinValue : int.MaxValue), //Use sentinel value to put this record to the end
                 _ => log => log.Created
             };
         }
