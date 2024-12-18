@@ -90,6 +90,11 @@ namespace Lottery.Application.Services
             _logger.LogInformation("{Mode} generation mode enabled.", mode);
         }
 
+        public bool IsServerSideGeneration( )
+        {
+            return _generationSideStateManager.ServerSide;
+        }
+
         public async Task SaveDrawAsync(int[] numbers)
         {
             _logger.LogInformation("Attempting to save draw: {Numbers}", string.Join(", ", numbers ?? Array.Empty<int>( )));
@@ -157,7 +162,7 @@ namespace Lottery.Application.Services
                     {
                         Number = y.Number,
                         Index = y.Index
-                    })
+                    }).OrderBy(y => y.Index)
                 }).ToList( ),
           history.TotalCount,
            history.PageIndex,

@@ -30,13 +30,22 @@ namespace Lottery.Presentation.Server.Api.Controllers
             return Ok(numbers);
         }
 
-        [HttpPost("set-generation-mode")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpPost("generation-mode")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof((bool, string)))]
         public IActionResult SetGenerationMode([FromBody] bool isServerSide)
         {
             _lotteryService.SetGenerationMode(isServerSide);
             var mode = isServerSide ? "Server-side" : "Client-side";
-            return Ok(new { Message = $"{mode} generation mode enabled." });
+            return Ok(new { IsServerSide = isServerSide, Message = $"{mode} generation mode enabled." });
+        }
+
+        [HttpGet("generation-mode")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof((bool, string)))]
+        public IActionResult GetGenerationMode( )
+        {
+            var isServerSide = _lotteryService.IsServerSideGeneration();
+            var mode = isServerSide ? "Server-side" : "Client-side";
+            return Ok(new { IsServerSide = isServerSide, Message = $"{mode} generation mode is currently active." });
         }
 
         [HttpPost("save")]
@@ -60,6 +69,14 @@ namespace Lottery.Presentation.Server.Api.Controllers
                 _logger.LogError(ex, "Unexpected error while saving draw.");
                 throw;
             }
+        }
+
+        //Could be also done with healthcheck, with this approach we can check specific controller
+        [HttpGet("ping")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult Ping( )
+        {
+            return Ok( );
         }
 
         [HttpPost("history")]

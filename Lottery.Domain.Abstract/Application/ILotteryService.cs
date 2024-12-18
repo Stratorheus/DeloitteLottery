@@ -9,6 +9,7 @@ namespace Lottery.Domain.Abstract.Application
     {
         int[] GenerateDraw( );
         Task<PagedResult<DrawLogDto>> GetDrawHistoryAsync(DrawHistoryRequest request);
+        bool IsServerSideGeneration( );
         Task SaveDrawAsync(int[] numbers);
         void SetGenerationMode(bool isServerSide);
     }

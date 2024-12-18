@@ -10,6 +10,10 @@ export interface ApiSetGenerationModeRequest {
   isServerSide: boolean;
 }
 
+export interface ApiGetGenerationModeResponse {
+  isServerSide: boolean;
+}
+
 export interface ApiSaveDrawRequest {
   numbers: number[];
 }
