@@ -24,9 +24,13 @@ namespace Lottery.Presentation.Server.Api.Controllers
 
         [HttpGet("generate")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int[]))]
-        public IActionResult Generate( )
+        public async Task<IActionResult> Generate( )
         {
             var numbers = _lotteryService.GenerateDraw();
+            //Save the numbers immediately after generation.
+            //Due to this, cache on SSG doesn't make much sense, however will be kept to showcase
+            //this possibility for different scenarios
+            await _lotteryService.SaveDrawAsync(numbers);
             return Ok(numbers);
         }
 

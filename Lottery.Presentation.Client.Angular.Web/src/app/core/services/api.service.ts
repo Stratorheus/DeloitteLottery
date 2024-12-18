@@ -20,8 +20,8 @@ export class ApiService {
     return this.http.get<void>(`${this.baseUrl}/ping`);
   }
 
-  generateNumbers(): Observable<ApiGenerateResponse> {
-    return this.http.get<ApiGenerateResponse>(`${this.baseUrl}/generate`);
+  generateNumbers(): Observable<number[]> {
+    return this.http.get<number[]>(`${this.baseUrl}/generate`);
   }
 
   setGenerationMode(request: ApiSetGenerationModeRequest) : Observable<{ isServerSide: boolean; message: string }> {
@@ -32,8 +32,8 @@ export class ApiService {
     return this.http.get<ApiGetGenerationModeResponse>(`${this.baseUrl}/generation-mode`);
   }
 
-  saveDraw(request: ApiSaveDrawRequest): Observable<ApiSaveDrawResponse> {
-    return this.http.post<ApiSaveDrawResponse>(`${this.baseUrl}/save`, request);
+  saveDraw(request: number[]): Observable<void> {
+    return this.http.post<void>(`${this.baseUrl}/save`, request);
   }
 
   getHistory(request: ApiGetHistoryRequest): Observable<ApiGetHistoryResponse> {
