@@ -2,6 +2,8 @@ using Lottery.Infrastructure.Injection;
 using Lottery.Application.Injection;
 using Scalar.AspNetCore;
 using Serilog;
+using Lottery.Infrastructure.Database.Ef.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lottery.Presentation.Server.Api
 {
@@ -26,13 +28,22 @@ namespace Lottery.Presentation.Server.Api
             {
                 options.AddPolicy("AllowSpecificOrigins", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200")
+                    policy.WithOrigins(builder.Configuration.GetRequiredSection("AngularClientUrl").Value!)
                           .AllowAnyHeader( )
                           .AllowAnyMethod( );
                 });
             });
 
             var app = builder.Build();
+
+            using (var serviceScope = app.Services.GetService<IServiceScopeFactory>( )?.CreateScope( ) )
+            {
+                if ( serviceScope is not null )
+                {
+                    var context = serviceScope.ServiceProvider.GetRequiredService<LotteryDbContext>();
+                    context.Database.Migrate( );
+                }
+            }
 
             app.UseSerilogRequestLogging( );
 

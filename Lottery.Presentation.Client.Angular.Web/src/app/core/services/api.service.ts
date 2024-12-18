@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {
-  ApiGenerateResponse, ApiGetGenerationModeResponse, ApiGetHistoryRequest,
-  ApiGetHistoryResponse,
-  ApiGetOrderableFieldsResponse, ApiSaveDrawRequest,
-  ApiSaveDrawResponse, ApiSetGenerationModeRequest
+  ApiGetGenerationModeResponse, ApiGetHistoryRequest,
+  ApiGetHistoryResponse, ApiSetGenerationModeRequest
 } from "../../models/api-endpoints.dto";
 
 @Injectable({
@@ -38,9 +36,5 @@ export class ApiService {
 
   getHistory(request: ApiGetHistoryRequest): Observable<ApiGetHistoryResponse> {
     return this.http.post<ApiGetHistoryResponse>(`${this.baseUrl}/history`, request);
-  }
-
-  getOrderableFields(): Observable<ApiGetOrderableFieldsResponse> {
-    return this.http.get<ApiGetOrderableFieldsResponse>(`${this.baseUrl}/orderable-fields`);
   }
 }

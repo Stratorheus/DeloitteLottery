@@ -7,7 +7,7 @@ export class NumberGeneratorService {
   //IMPORTANT!!
   //Logics copied from backend C# code and rewritten to TS.
   //Please refer to Lottery > Application > Lottery.Application.Services project > NumberService.cs
-  //to view commentaries and explanations
+  //to view comments and explanations
 
   private random = Math.random;
 

@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {ApiService} from "./api.service";
 import {NumberGeneratorService} from "./number-generator.service";
 import {GenerationStateService} from "./generation-state.service";
-import {map, Observable, of, switchMap} from "rxjs";
-import {ApiGenerateResponse} from "../../models/api-endpoints.dto";
+import {map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
