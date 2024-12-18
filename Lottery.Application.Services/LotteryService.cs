@@ -20,20 +20,22 @@ namespace Lottery.Application.Services
         private readonly IDrawHistoryRepository _repository;
         private readonly IMemoryCache _cache;
         private readonly ILogger<LotteryService> _logger;
+        private readonly GenerationSideStateManager _generationSideStateManager;
 
         private const string CacheKey = "LastGeneratedNumbers";
-        private bool _serverSideGeneration = false;
 
         public LotteryService(
             INumberService generatorService,
             IDrawHistoryRepository repository,
             IMemoryCache cache,
-            ILogger<LotteryService> logger)
+            ILogger<LotteryService> logger,
+            GenerationSideStateManager generationSideStateManager)
         {
             _generatorService = generatorService ?? throw new ArgumentNullException(nameof(generatorService));
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _cache = cache ?? throw new ArgumentNullException(nameof(cache));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _generationSideStateManager = generationSideStateManager;
         }
 
         public int[] GenerateDraw( )
@@ -44,7 +46,7 @@ namespace Lottery.Application.Services
             try
             {
                 //Automatically switch to SSG when generate is called
-                if ( !_serverSideGeneration ) _serverSideGeneration = true;
+                if ( !_generationSideStateManager.ServerSide ) _generationSideStateManager.Set(true);
                 var numbers = _generatorService.Generate();
                 _logger.LogInformation("Successfully generated numbers: {Numbers}", string.Join(", ", numbers));
                 _cache.Set(CacheKey, numbers, TimeSpan.FromMinutes(10));
@@ -73,7 +75,7 @@ namespace Lottery.Application.Services
         /// </remarks>
         public void SetGenerationMode(bool isServerSide)
         {
-            _serverSideGeneration = isServerSide;
+            _generationSideStateManager.Set(isServerSide);
 
             if ( !isServerSide )
             {
@@ -165,7 +167,7 @@ namespace Lottery.Application.Services
 
         private void CheckCache(int[] numbers)
         {
-            if ( _serverSideGeneration && _cache.TryGetValue(CacheKey, out int[]? cachedNumbers) )
+            if ( _generationSideStateManager.ServerSide && _cache.TryGetValue(CacheKey, out int[]? cachedNumbers) )
             {
                 if ( cachedNumbers is null )
                 {

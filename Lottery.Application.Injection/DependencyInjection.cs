@@ -14,6 +14,7 @@ namespace Lottery.Application.Injection
             services.Configure<GeneratorOptions>(config.GetSection(GeneratorOptions.ConfigSection));
             services.AddMemoryCache( );
             services.AddScoped<INumberService, NumberService>( );
+            services.AddSingleton<GenerationSideStateManager>( );
             services.AddScoped<ILotteryService, LotteryService>( );
         }
     }
